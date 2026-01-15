@@ -1,19 +1,30 @@
 {
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "npx ts-node src/server.ts",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix"
+  },
   "dependencies": {
     "chess.js": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^5.2.1",
-    "react-chessboard-ui": "^1.5.1"
+    "react-chessboard-ui": "^1.5.1",
+    "socket.io": "^4.8.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.8",
-    "typescript": "^5.9.3"
+    "@typescript-eslint/eslint-plugin": "^8.53.0",
+    "@typescript-eslint/parser": "^8.53.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.0"
   },
   "optionalDependencies": {
     "bufferutil": "*",
-    "socket.io": "^4.8.3",
     "utf-8-validate": "*"
   }
 }
