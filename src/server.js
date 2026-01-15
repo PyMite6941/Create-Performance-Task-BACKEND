@@ -1,18 +1,14 @@
-// Programmed by Pymite6941
-import { createServer } from "node::http";
-import next from "next";
-import { Server } from "socket.io";
+import { Chess } from 'chess.js';
+import express from 'express';
 
-// Setting server basics
-const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
-const port = 3000;
-const app = next({dev,hostname,port});
-const handler = app.getRequestHandler();
-app.prepare().then(() => {
-    const httpServer = createServer(handler);
-    const io = new Server(httpServer);
-    io.on("connection",(socket) => {
-        //
-    })
-})
+//require the packages to be installed regardless of environment
+const express = require("express");
+const cors = require("cors");
+const { Chess } = require("chess.js");
+
+// initialize the app
+const app = express()
+app.use(cors());
+app.use(express.json());
+
+const games = {}
