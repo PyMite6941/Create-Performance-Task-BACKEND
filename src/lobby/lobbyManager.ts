@@ -1,6 +1,6 @@
-import { Chess } from 'chess.js';
+import { Chess,Move } from 'chess.js';
 import { Lobby,Player } from '../types/lobbyTypes';
-import { createGame,saveFen,validateMove} from '../game';
+import { createGame,validateMove} from '../game';
 
 const lobbies = new Map<string, Lobby>();
 
@@ -69,7 +69,20 @@ export function getAllLobbies(): Map<string, Lobby> {
     return lobbies;
 }
 
-export function lobbyGameLogic(Fen:string[],new_move:string) {
+let fenHistory:string[] = []
+
+export function getAllStates(newState:string) {
+    fenHistory.push(newState);
+}
+
+export function getCurrentState() {
+    return fenHistory[:-1];
+}
+
+export function lobbyGameLogic(Fen:string,new_move:Move) {
+    if (!validateMove(new_move,Fen)) {
+        return null;
+    }
     const NewFen = Fen.push(new_move);
 
 }
