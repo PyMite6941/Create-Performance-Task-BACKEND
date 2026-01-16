@@ -2,15 +2,18 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "npx ts-node src/server.ts",
+    "build": "tsc",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix"
   },
   "dependencies": {
+    "@types/ws": "^8.18.1",
     "chess.js": "^1.4.0",
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "react-chessboard-ui": "^1.5.1",
-    "socket.io": "^4.8.3"
+    "socket.io": "^4.8.3",
+    "ws": "^8.19.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",

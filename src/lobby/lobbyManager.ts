@@ -1,6 +1,5 @@
 import { Chess } from 'chess.js';
 import { Lobby, Player } from '../types/lobbyTypes';
-import { createGame, validateMove} from '../game';
 
 const lobbies = new Map<string, Lobby>();
 
@@ -8,10 +7,11 @@ export function generateLobbyId(): string {
     return Math.random().toString(36).substring(2, 8).toUpperCase();
 }
 
-export function createLobby(socketId: string): Lobby {
+export function createLobby(socketId: string, playerName: string): Lobby {
     const lobbyId = generateLobbyId();
     const player: Player = {
         socketId,
+        name: playerName,
         color: 'white'
     };
 
@@ -34,9 +34,10 @@ export function deleteLobby(lobbyId: string): void {
     lobbies.delete(lobbyId);
 }
 
-export function addPlayerToLobby(lobby: Lobby, socketId: string): Player {
+export function addPlayerToLobby(lobby: Lobby, socketId: string, playerName: string): Player {
     const player: Player = {
         socketId,
+        name: playerName,
         color: 'black'
     };
     lobby.players.push(player);
@@ -67,9 +68,4 @@ export function findLobbyBySocketId(socketId: string): { lobbyId: string; lobby:
 
 export function getAllLobbies(): Map<string, Lobby> {
     return lobbies;
-}
-
-export function lobbyGameLogic(Fen:string[],new_move:string) {
-    const NewFen = Fen.push(new_move);
-
 }

@@ -2,6 +2,7 @@ import { Chess } from 'chess.js';
 
 export interface Player {
     socketId: string;
+    name: string;
     color: 'white' | 'black';
 }
 
@@ -13,8 +14,8 @@ export interface Lobby {
 }
 
 export interface ClientToServerEvents {
-    createLobby: () => void;
-    joinLobby: (lobbyId: string) => void;
+    createLobby: (playerName: string) => void;
+    joinLobby: (lobbyId: string, playerName: string) => void;
     makeMove: (data: { lobbyId: string; from: string; to: string; promotion?: string }) => void;
     leaveLobby: (lobbyId: string) => void;
 }

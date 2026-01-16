@@ -4,11 +4,11 @@ import { createLobby, getAllLobbies, getLobby } from '../lobby/lobbyManager';
 const router = Router();
 
 router.post('/lobbies', (req: Request, res: Response) => {
-    const { socketId } = req.body;
-    if (!socketId) {
-        return res.status(400).json({ error: 'Socket ID is required' });
+    const { socketId, playerName } = req.body;
+    if (!socketId || !playerName) {
+        return res.status(400).json({ error: 'Socket ID and player name are required' });
     }
-    const lobby = createLobby(socketId);
+    const lobby = createLobby(socketId, playerName);
     res.status(201).json(lobby);
 });
 
