@@ -1,5 +1,6 @@
 import { Chess } from 'chess.js';
-import { Lobby, Player } from '../types/lobbyTypes';
+import { Lobby,Player } from '../types/lobbyTypes';
+import { createGame,saveFen,validateMove} from '../game';
 
 const lobbies = new Map<string, Lobby>();
 
@@ -66,4 +67,9 @@ export function findLobbyBySocketId(socketId: string): { lobbyId: string; lobby:
 
 export function getAllLobbies(): Map<string, Lobby> {
     return lobbies;
+}
+
+export function lobbyGameLogic(Fen:string[],new_move:string) {
+    const NewFen = Fen.push(new_move);
+
 }
