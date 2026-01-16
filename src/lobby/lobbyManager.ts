@@ -1,6 +1,6 @@
 import { Chess } from 'chess.js';
-import { Lobby,Player } from '../types/lobbyTypes';
-import { createGame,saveFen,validateMove} from '../game';
+import { Lobby, Player } from '../types/lobbyTypes';
+import { createGame, validateMove} from '../game';
 
 const lobbies = new Map<string, Lobby>();
 
