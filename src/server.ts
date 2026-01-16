@@ -38,7 +38,7 @@ app.get('/lobbies/:id', (req: Request<{ id: string }>, res: Response) => {
     });
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8000;
 httpServer.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
