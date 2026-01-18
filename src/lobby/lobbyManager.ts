@@ -68,21 +68,3 @@ export function findLobbyBySocketId(socketId: string): { lobbyId: string; lobby:
 export function getAllLobbies(): Map<string, Lobby> {
     return lobbies;
 }
-
-let fenHistory:string[] = []
-
-export function getAllStates(newState:string) {
-    fenHistory.push(newState);
-}
-
-export function getCurrentState() {
-    return fenHistory[:-1];
-}
-
-export function lobbyGameLogic(Fen:string,new_move:Move) {
-    if (!validateMove(new_move,Fen)) {
-        return null;
-    }
-    const NewFen = Fen.push(new_move);
-
-}
